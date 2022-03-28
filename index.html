@@ -127,17 +127,22 @@
       };
 
       //   polygon
+      var stylemap = {
+        color: "green",
+        weight: 3,
+      };
       function popUp(f, l) {
         var out = [];
         if (f.properties) {
           for (key in f.properties) {
-            out.push(key + ": " + f.properties[key]);
+            out.push(key + " : " + f.properties[key]);
           }
           l.bindPopup(out.join("<br />"));
         }
       }
-      var polygon = new L.GeoJSON.AJAX(["kalbar-kabupaten-kota.geojson"], {
+      var polygon = new L.GeoJSON.AJAX(["polygon-kalbar.geojson"], {
         onEachFeature: popUp,
+        style: stylemap,
       }).addTo(map);
     </script>
     <script>
